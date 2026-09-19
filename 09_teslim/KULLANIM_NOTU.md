@@ -4,4 +4,4 @@
 2. CRS: EPSG:32635. Parametreler: `../params/model.yaml` (surum + tohum icerir).
 3. Gorus protokolu: `../05_olcut_model/GORUS_PROTOKOL.txt`.
 4. Bastan calistirma: README 'Hizli baslat' (loglar `../logs/`).
-5. Paket tarihi (UTC): 2026-09-19T12:05:30.358776Z.
+5. Paket tarihi (UTC): 2026-09-19T12:09:14.039382Z.

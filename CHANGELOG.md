@@ -1,5 +1,15 @@
 # Değişiklik günlüğü
 
+## v3.1.0 — çıkarım turu (2026-09-18)
+
+- Gözlemci yüksekliği duyarlılığı (2/4/10 m, 11 kurumsal): R06 0.22→0.47,
+  Kilitbahir kümesi 10 m'de bile ~0 (yapısal kapalılık).
+- Kontrol sıklaştırma: 100 kontrol (48+4+48); fR ölçeği ilk-48 çapasında birleştirildi.
+- K3-GERÇEK çıkarımsal havuz (n_t=6, n_k=36): M1 p=0.53, fV p=0.19 — ayrışmıyor; R04 betimsel.
+- PDF bulgular raporu, Excel kitabı, full-repo GitHub (`canakkale-cbs`).
+- Yaka teşhisi düzeltmesi (D9), tek-yaka denetimi (D10) kayıt altında.
+- Denetim 44/44, paket 105 dosya.
+
 ## v3.0.0 — cba birleşimi (2026-09-18)
 
 - 11 kurumsal ziyaret referansı ithal edildi (çapraz doğrulamalı, orta güven);

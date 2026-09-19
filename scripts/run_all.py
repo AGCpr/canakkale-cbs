@@ -20,7 +20,7 @@ SIRA = ["00_ortam_kaydi.py", "01_acik_veri_indir.py", "02_envanter_iskelet.py",
         "26_ayrisma.py", "27_montecarlo.py", "28_capraz_kaynak.py",
         "29_kurumsal_envanter.py", "30_kurumsal_olcut.py", "32_gercek_kiyas.py",
         "34_mapzen.py",
-        "35_excel.py", "36_font.py", "37_genislik.py", "18_wiki_capraz.py",
+        "35_excel.py", "36_font.py", "37_genislik.py", "41_pdf.py", "18_wiki_capraz.py",
         "19_ahp.py", "20_erisim.py", "21_ogrenen.py", "22_deniz_seviyesi.py",
         "23_web_atlas.py", "24_rapor_html.py", "09_teslim_paketi.py",
         "15_qgis_proje.py", "16_dogrula.py", "17_denetim.py"]

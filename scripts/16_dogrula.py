@@ -35,6 +35,7 @@ ZORUNLU = [
  ("web/img/u_esit.png", "web-png"), ("web/_headers", "web-headers"),
  ("web/dosya/canakkale_cbs.gpkg", "web-gpkg"), ("web/dosya/canakkale_vrs.qgz", "web-qgz"),
  ("02_envanter/capraz_kaynak.csv", "capraz"), ("07_belirsizlik/mc_aday.csv", "mc"),
+ ("09_teslim/bulgular.pdf", "pdf"), ("09_teslim/sonuc-tablolari.xlsx", "xlsx"),
  ("06_karsilastirma/karsilastirma_tablosu__PILOT_ADAY.csv", "H-karsilastirma"),
  ("06_karsilastirma/K3_PILOT_HUKMU.md", "K3-hukum"),
  ("07_belirsizlik/kararlilik.csv", "kararlilik"),
