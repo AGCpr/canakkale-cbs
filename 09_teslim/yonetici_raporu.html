@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<title>Çanakkale CBS — Yönetici Raporu (pilot)</title>
+<style>body{font-family:sans-serif;max-width:900px;margin:auto;padding:16px;color:#123}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #bbb;padding:4px 8px;font-size:14px}
+img{max-width:100%}.uyari{background:#fff7e6;padding:8px;border-left:4px solid #d90}</style></head><body>
+<h1>Çanakkale Boğazı CBS — Yönetici Raporu (pilot)</h1>
+<p>Yöntem önerisinin uygulaması. İlke: önce tarihsel bağlam, sonra model, ardından bağımsız sınama.</p>
+<div class="uyari"><b>Sınır:</b> Aday koordinatlar OSM taslak (düşük güven); bu rapor yöntem gösterimidir,
+tarihsel yargı değildir. Hüküm cümlesi: <b>"Tarihsel noktalar ... ayrışmıyor; bu sonuç belirtilen
+veri ve senaryo sınırları içinde geçerli."</b></div>
+<h2>H1 — Tabya (n=4) vs eşleşmiş kontrol (n=16)</h2>
+<ul><li>M1: fark -0.0079, p=1, delta +0.00, CI [-0.1155,+0.3202]</li>
+<li>Yalnız-görüş: fark -0.0041, p=0.471</li></ul>
+<h2>Adaylar</h2><table><tr><th>ID</th><th>Ad</th><th>fV</th><th>U</th><th>Karar.</th><th>Sınıf</th></tr><tr><td>T01</td><td>Namazgah Tabyasi</td><td>0.0000</td><td>0.373</td><td>0.00</td><td>dusuk/degisken</td></tr><tr><td>T03</td><td>Mecidiye Tabyasi</td><td>0.0000</td><td>0.402</td><td>0.00</td><td>dusuk/degisken</td></tr><tr><td>T04</td><td>Anadolu Hamidiyesi</td><td>0.0006</td><td>0.484</td><td>0.00</td><td>yuksek/degisken</td></tr><tr><td>T05</td><td>Orhaniye Tabyasi</td><td>0.4168</td><td>0.769</td><td>1.00</td><td>yuksek/kararli</td></tr><tr><td>T07</td><td>Seddulbahir Kalesi</td><td>0.3417</td><td>0.632</td><td>1.00</td><td>yuksek/kararli</td></tr><tr><td>T08</td><td>Kilitbahir Kalesi</td><td>0.0025</td><td>0.403</td><td>0.00</td><td>dusuk/degisken</td></tr><tr><td>T09</td><td>Cimenlik Kalesi</td><td>0.0044</td><td>0.511</td><td>0.00</td><td>yuksek/degisken</td></tr><tr><td>T10</td><td>Nara Burnu</td><td>0.0043</td><td>0.485</td><td>0.00</td><td>yuksek/degisken</td></tr></table>
+<h2>Öğrenen model (düşük güç)</h2><p>RF önem: {'fV': 0.208, 'fR': 0.242, 'fS': 0.131, 'fE': 0.419} ·
+2-katman CV AUC: 0.385 · Blok CV: tek-sınıf (hesaplanamaz).</p>
+<h2>Haritalar</h2>
+<img src="harita_dem.png"><img src="harita_U_esit.png"><img src="harita_noktalar.png">
+<img src="../07_belirsizlik/belirsizlik_matrisi.png">
+<p><a href="../web/index.html">İnteraktif atlas (v2)</a> · <a href="NIHAI_RAPOR.md">Nihai rapor</a></p>
+</body></html>

@@ -1,0 +1,6 @@
+kaynak: GERCEK (Copernicus)
+karolar: 6
+cozum_m: 30
+crs: EPSG:32635
+hizalama: sola-dayali taban (tap-benzeri)
+not: 5m ornekleme YASAK; dosya gercek veri

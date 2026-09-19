@@ -1,0 +1,5 @@
+etiket,n_t,n_k,medyan_fark,p,cliffs_d,ci_lo,ci_hi,kip
+H1_tabya_fV,4,16,-0.0041,0.47091845835839885,-0.25,-0.0562,0.4124,PILOT_ADAY
+H1_tabya_M1_esit,4,16,-0.0079,1.0,0.0,-0.1155,0.3202,PILOT_ADAY
+H1_tabya_M0,4,16,-0.0041,0.47091845835839885,-0.25,-0.0565,0.4124,PILOT_ADAY
+H2_M0_M1_cliffs,4,16,0.25,,0.0,-0.25,,PILOT_ADAY

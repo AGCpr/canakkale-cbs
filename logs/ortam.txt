@@ -1,0 +1,16 @@
+zaman_utc: 2026-09-16T17:48:06.771027Z
+platform: Windows-10-10.0.26200-SP0
+python: 3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]
+numpy: 2.4.3
+pandas: 3.0.5
+rasterio: 1.4.4
+geopandas: 1.1.4
+scipy: 1.17.1
+sklearn: 1.9.0
+matplotlib: 3.11.0
+yaml: 6.0.3
+gdalinfo.exe: GDAL 3.13.3 "Iowa City", released 2026/08/13
+gdal_viewshed.exe: GDAL 3.13.3 "Iowa City", released 2026/08/13
+gdaldem.exe: GDAL 3.13.3 "Iowa City", released 2026/08/13
+qgis-bin.exe: QGIS 4.2.2-BelÃ©m do ParÃ¡ 'BelÃ©m do ParÃ¡' (f1431de8676)
+PATH gdalinfo: yok

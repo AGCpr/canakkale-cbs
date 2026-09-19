@@ -1,0 +1,1 @@
+AHP [1.0031, -0.0015, -0.0015] CR=-157.6128; uzman senaryo guncellendi (sapma 0.5031)

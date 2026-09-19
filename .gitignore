@@ -1,0 +1,7 @@
+# Ham veri (script 01 ile yeniden indirilir) ve dev teslim zip'i repoya girmez.
+03_veri/ham/
+09_teslim/cbs_teslim_paketi.zip
+# Web arayuzu ayri repo: https://github.com/AGCpr/bogaz-atlasi
+web/
+__pycache__/
+*.pyc

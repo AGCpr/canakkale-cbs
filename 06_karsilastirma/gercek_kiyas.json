@@ -1,0 +1,56 @@
+{
+ "H1_M1": {
+  "n_t": 7,
+  "n_k": 40,
+  "fark": 0.0207,
+  "p": null,
+  "delta": 0.16,
+  "cikarim": "betimsel (n_k<5 referans var)"
+ },
+ "H1_fV": {
+  "fark": -0.1085,
+  "p": null,
+  "delta": -0.39
+ },
+ "ablasyon": [
+  {
+   "model": "M0_yalniz_gorus",
+   "spearman": 0.351,
+   "ust20_jaccard": 0.25
+  },
+  {
+   "model": "geometrik",
+   "spearman": 0.491,
+   "ust20_jaccard": 0.379
+  },
+  {
+   "model": "V_haric",
+   "spearman": 0.985,
+   "ust20_jaccard": 0.739
+  },
+  {
+   "model": "R_haric",
+   "spearman": 0.521,
+   "ust20_jaccard": 0.25
+  },
+  {
+   "model": "S_haric",
+   "spearman": 0.85,
+   "ust20_jaccard": 0.739
+  }
+ ],
+ "pareto_n": 5,
+ "pareto_tabya": [
+  "R06",
+  "R07"
+ ],
+ "dirichlet": {
+  "R01": 0.0,
+  "R02": 0.0,
+  "R03": 0.0,
+  "R04": 0.0,
+  "R05": 0.0,
+  "R06": 1.0,
+  "R07": 0.67
+ }
+}

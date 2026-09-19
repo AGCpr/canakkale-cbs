@@ -1,0 +1,5 @@
+gozlemci_m: 4.0; hedef_m: 0.0 (deniz seviyesi)
+mesafe_m: 15000; refraksiyon: 0.13; egriklik: acik
+islem_penceresi: 8km koridor kirpigi 3097x2911; toplam_su_hedef_hucre(koridor): 408952
+hedef_seyreltme_orani: 0.010 (yalnizca numpy yedekte)
+birincil: gdal_viewshed (bulundu); tampon_m: 30

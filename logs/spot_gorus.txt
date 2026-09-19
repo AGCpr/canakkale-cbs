@@ -1,0 +1,2 @@
+kontrol K404751: tablo=0.1404 spot=0.0172
+aday T05: tablo=0.0818 spot=0.0818

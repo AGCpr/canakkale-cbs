@@ -1,0 +1,47 @@
+# Denetim 2026-09-19T11:18:22.777697+00:00
+PASS A-grid:egim_derece.tif (2911, 3097, '| 30.00, 0.00, 410850.00|\n| 0.00,-30.00, 4504560.00|\n| 0.00, 0.00, 1.00|')
+PASS A-grid:r_1000m.tif (2911, 3097, '| 30.00, 0.00, 410850.00|\n| 0.00,-30.00, 4504560.00|\n| 0.00, 0.00, 1.00|')
+PASS A-grid:fR.tif (2911, 3097, '| 30.00, 0.00, 410850.00|\n| 0.00,-30.00, 4504560.00|\n| 0.00, 0.00, 1.00|')
+PASS A-grid:fS.tif (2911, 3097, '| 30.00, 0.00, 410850.00|\n| 0.00,-30.00, 4504560.00|\n| 0.00, 0.00, 1.00|')
+PASS A-grid:U_raster_esit.tif (2911, 3097, '| 30.00, 0.00, 410850.00|\n| 0.00,-30.00, 4504560.00|\n| 0.00, 0.00, 1.00|')
+PASS A-grid:kumulatif_gorus.tif (2911, 3097, '| 30.00, 0.00, 410850.00|\n| 0.00,-30.00, 4504560.00|\n| 0.00, 0.00, 1.00|')
+PASS A-grid:koridor_dem.tif (2911, 3097, '| 30.00, 0.00, 410850.00|\n| 0.00,-30.00, 4504560.00|\n| 0.00, 0.00, 1.00|')
+PASS A-DEM:crs+cozum 32635 (30.0, 30.0) 3417x2941
+PASS B-olcut:satir n=52
+PASS B-olcut:aralik 
+PASS B-olcut:fR-winsor p5=-26.24 p95=40.94
+PASS B-olcut:fS 
+PASS C-model:U_esit 
+PASS C-model:M0/M1 
+PASS C-model:U_uzman 
+PASS D-aday:satir n=8
+PASS D-aday:U_esit 
+PASS D-aday:aralik 
+PASS D-aday:bayrak 
+PASS E-OWA:OR/AND/notr 
+PASS E-OWA:rho-OWA_OR rho=0.507
+PASS E-OWA:rho-OWA_AND rho=0.373
+PASS F-kararlilik 
+PASS G-H1_tabya_M1_esit p=0.7363 fark=-0.0059
+PASS G-H1_tabya_fV p=0.5072 fark=-0.0040
+PASS H-maske:sonlu-oran 1.000
+PASS H-su_hedef:vektor 46 poligon, baskin pay=1.0000
+PASS I-PILOT_RAPOR 
+PASS I-K3_HUKMU 
+PASS I-NIHAI 
+PASS J-spot:kontrol tablo=0.1404 spot=0.1404
+PASS J-spot:aday-T05 tablo=0.4168 spot=0.4168
+PASS K-AHP:CR CR=0.0079
+PASS K-M2:model 
+PASS K-M2:aday 
+PASS K-ogrenen 0.173
+PASS K-denizsv 
+PASS K-web 
+PASS K-dejenere-notu 
+PASS L-web:meta-H1 fark=-0.0059 n=52+8
+PASS L-web:js-syntax 
+PASS L-web:ayrisma 5 olcut
+PASS L-web:html 
+PASS M-mc+capraz mc=8 satir
+
+SONUC: 44/44 PASS

@@ -1,0 +1,66 @@
+# Çalışma CRS ve grid (rapor §07)
+calisma_crs: "EPSG:32635"
+kaynak_crs: "EPSG:4326"
+ortak_cozunurluk_m: 30
+kapsama_kutusu_wgs84: [25.9, 39.9, 27.1, 40.7]  # xmin, ymin, xmax, ymax
+cozum_5m_yasak: true
+
+# Görüş protokolü (rapor §06-07, D6) — tüm adaylarda sabit
+gorus:
+  gozlemci_yuksekligi_m: 4.0
+  hedef_yuksekligi_m: 0.0      # deniz seviyesi; batimetri değil
+  egriklik_duzeltme: true
+  refraksiyon_katsayisi: 0.13
+  mesafe_siniri_m: 15000
+  arazi_tampon_m: 30
+  yapı_senaryolari_m: [2.0, 4.0, 6.0, 10.0]
+
+# Göreli yükselti (R) ve eğim (S)
+goreli_yukselti:
+  yariçaplar_m: [500, 1000, 2000]
+  varsayilan_yaricap_m: 1000
+egim:
+  varsayim: "az_egim_iyi_varsayimi_belgeli"  # değiştirilirse gerekçesi MODEL_KARTI'na işlenir
+  esik: {duz: 5.0, orta: 15.0, dik: 30.0}    # derece; ön-kayıt, veriye göre ayarlanmaz
+
+# Puan dönüşümleri (ön-kayıt; tarihsel puanı yükseltmek için ayarlanmaz)
+donusum:
+  fV: "dogrusal_0_1"
+  fR: "winsorize_01_p5_p95"
+  fS: "ters_dogrusal_esik"
+
+# Ağırlık senaryoları (toplam 1)
+agirliklar:
+  esit: {wV: 0.3333, wR: 0.3333, wS: 0.3334}
+  uzman_gorus_agirlikli: {wV: 0.5, wR: 0.3, wS: 0.2}
+  uzman_denge_arayisi: {wV: 0.4, wR: 0.3, wS: 0.3}
+
+# M2 erişim modeli (20_erisim; gerekçeli ek)
+erisim:
+  agirliklar_M2: {wV: 0.3, wR: 0.3, wS: 0.2, wE: 0.2}
+  yontem: "egim-tabanli maliyet mesafesi (k modern arazi vekili; donem yolu yoksa ayri senaryo)"
+
+modeller: ["M0_yalniz_gorus", "M1_uc_olcut", "M2_gerekceli_ek"]
+
+# Karşılaştırma (rapor §08)
+karsilastirma:
+  kontrol_kosulu: "ayni_kiyi_kesimi_benzer_kiyi_uzakligi"
+  eslestirme_yasak: ["yukselti", "egim", "gorus"]
+  blok_yontemi: "mekansal_bagimlilik_ornek_dagilimi"  # sabit ezber yok
+  gostergeler: ["medyan_fark", "dagilim", "yogunlasma_orani", "kume_koruyan_bootstrap"]
+
+# Belirsizlik (rapor §09)
+belirsizlik:
+  aileler: ["agirlik_puanlama", "arazi_olcek", "gorus_konum", "tarihsel_kayit"]
+  cikti: ["uygunluk_puani", "kararlilik_sikligi"]
+  monte_carlo: {oncelikli: "sinirli_senaryo_matrisi", kosul: "dagilim_gerekceli_ise", yakinsama_izlenir: true}
+
+# AHP (19_ahp; §04 uzman senaryo gerekcesi)
+ahp:
+  matris: [[1, 2, 3], [0.5, 1, 2], [0.3333, 0.5, 1]]  # sira [V, R, S]
+  gerekce: "gozetleme birincil, hakimiyet ikincil, yerlesim ucuncu"
+  CR_esik: 0.10
+
+tekrar_uretilebilirlik:
+  rastgelelik_tohumu: 20260916
+  surum_kaydi: ["QGIS", "GDAL", "Python", "paketler", "parametre_dosyasi"]

@@ -1,0 +1,30 @@
+{
+ "orneklem": {
+  "n0": 100,
+  "n1": 4
+ },
+ "ozellik": [
+  "fV",
+  "fR",
+  "fS",
+  "fE"
+ ],
+ "bloklu_CV": {
+  "Avrupa": {
+   "AUC_RF": 0.474,
+   "AUC_logit": 0.115
+  },
+  "Anadolu": {
+   "AUC_RF": 0.0,
+   "AUC_logit": 0.125
+  }
+ },
+ "uyari": "DUSUK GUCLU gosteri; tahmin iddiasi yok [8,9]",
+ "degisken_onem_RF": {
+  "fV": 0.208,
+  "fR": 0.242,
+  "fS": 0.131,
+  "fE": 0.419
+ },
+ "CV2_AUC_logit": 0.385
+}
