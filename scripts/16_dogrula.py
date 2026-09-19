@@ -90,6 +90,23 @@ for ad, w in P["agirliklar"].items():
     assert all(v >= 0 for v in w.values()), ad
 assert P["ortak_cozunurluk_m"] == 30 and P.get("cozum_5m_yasak")
 
+# qgz katman baglantilari
+try:
+    import zipfile as _zf
+    import xml.etree.ElementTree as _ET
+    with _zf.ZipFile(ROOT / "qgis" / "canakkale_vrs.qgz") as _z:
+        _ad = _z.namelist()
+        _kok = _ET.fromstring(_z.read(_ad[0]))
+        _eksik = []
+        for _ds in _kok.findall(".//datasource"):
+            _yol = (_ds.text or "").split("|")[0]
+            if _yol and not _yol.startswith("http") and not (ROOT / "qgis" / _yol).exists():
+                _eksik.append(_yol)
+        if _eksik:
+            hatalar.append(f"QGZ eksik katman: {_eksik[:5]}")
+except Exception as e:
+    hatalar.append(f"QGZ okuma: {e}")
+
 rapor = ["# Dogrulama", f"- zorunlu dosya: {len(ZORUNLU)-len([h for h in hatalar if h.startswith('EKSIK')])}/{len(ZORUNLU)}",
  f"- manifest OK: {okn}", f"- hata: {len(hatalar)}"]
 rapor += [f"  ! {h}" for h in hatalar]

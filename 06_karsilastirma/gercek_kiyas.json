@@ -27,6 +27,23 @@
   "p": 0.1889,
   "delta": -0.33
  },
+ "eslesmis_cift": {
+  "n_cift": 6,
+  "medyan_fark": -0.0005,
+  "p_wilcoxon": 0.8438
+ },
+ "donem": {
+  "Geç dönem": {
+   "n": 5,
+   "U_medyan": 0.4829,
+   "fV_medyan": 0.0
+  },
+  "Çok evreli": {
+   "n": 2,
+   "U_medyan": 0.3421,
+   "fV_medyan": 0.0003
+  }
+ },
  "ablasyon": [
   {
    "model": "M0_yalniz_gorus",

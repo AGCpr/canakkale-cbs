@@ -1,0 +1,43 @@
+baslangic_utc: 2026-09-19T12:45:04.053516+00:00
+kip: hizli
+OK 00_ortam_kaydi.py (2 sn)
+ATLA 01_acik_veri_indir.py
+OK 02_envanter_iskelet.py (0 sn)
+ATLA 03_uyumlastir.py
+ATLA 04_olcut_uret.py
+OK 33_anadolu_kontrol.py (10 sn)
+OK 33b_anadolu_seyrelt.py (1 sn)
+ATLA 39_yogun_kontrol.py
+OK 40_olcek_birle.py (1 sn)
+OK 05_model_calistir.py (2 sn)
+OK 06_karsilastirma.py (1 sn)
+OK 07_belirsizlik.py (1 sn)
+OK 08_atlas_uret.py (7 sn)
+OK 10_aday_nokta_derle.py (13 sn)
+ATLA 11_aday_olcut.py
+OK 12_pilot_kiyas.py (4 sn)
+OK 13_k3_hukum_atlas.py (3 sn)
+OK 14_tamamlayici.py (7 sn)
+OK 25_web_veri.py (4 sn)
+OK 26_ayrisma.py (3 sn)
+OK 27_montecarlo.py (33 sn)
+OK 28_capraz_kaynak.py (144 sn)
+OK 29_kurumsal_envanter.py (1 sn)
+ATLA 30_kurumsal_olcut.py
+OK 32_gercek_kiyas.py (3 sn)
+ATLA 34_mapzen.py
+OK 35_excel.py (1 sn)
+OK 36_font.py (0 sn)
+OK 37_genislik.py (1 sn)
+OK 41_pdf.py (1 sn)
+OK 18_wiki_capraz.py (6 sn)
+OK 19_ahp.py (0 sn)
+OK 20_erisim.py (13 sn)
+OK 21_ogrenen.py (4 sn)
+ATLA 22_deniz_seviyesi.py
+OK 23_web_atlas.py (2 sn)
+OK 24_rapor_html.py (1 sn)
+OK 09_teslim_paketi.py (6 sn)
+OK 15_qgis_proje.py (0 sn)
+OK 16_dogrula.py (1 sn)
+OK 17_denetim.py (2 sn)

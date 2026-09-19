@@ -37,7 +37,7 @@ Tarih (UTC): 2026-09-16 · Yöntem önerisinin (16 Eylül 2026 raporu) sahaya ge
 
 ## 4. Kapılar
 
-K1 ✅ · K2 ✅ · K3 ✅ PİLOT · **K3 ✅ GERÇEK-tanısal** (7 kurumsal tabya, bant-eşleşme, betimsel çıkarım; `K3_GERCEK_HUKMU.md`) · K4 ✅ (`logs/dogrulama.txt`, manifest 105/105 OK, hata 0).
+K1 ✅ · K2 ✅ · K3 ✅ PİLOT · **K3 ✅ GERÇEK-tanısal** (7 kurumsal tabya, bant-eşleşme, betimsel çıkarım; `K3_GERCEK_HUKMU.md`) · K4 ✅ (`logs/dogrulama.txt`, manifest 107/107 OK, hata 0).
 Kalan kurumsal iş: özgün oturum doğrulaması (plan jeoreferanslama) + dönem kıyı çizgisi + HGM modeli — `08_saha_belge/` protokolü hazır.
 
 ## 5. Yeniden çalıştırma

@@ -103,7 +103,9 @@ for _, r in df.iterrows():
 w = pd.DataFrame(sat)
 df = df.merge(w, on="yapi_id", how="left")
 df.to_csv(CSV, index=False)
-with open(ROOT / "02_envanter" / "ADAY_NOTU.md", "a", encoding="utf-8") as f:
-    f.write("\n## Capraz kontrol (18)\n\nVikipedi koordinatlariyla karsilastirma; "
+with open(ROOT / "02_envanter" / "ADAY_NOTU.md", "a+", encoding="utf-8") as f:
+    f.seek(0)
+    if "## Capraz kontrol (18)" not in f.read():
+        f.write("\n## Capraz kontrol (18)\n\nVikipedi koordinatlariyla karsilastirma; "
             "<=500 m uyumda capraz_guven=orta (hata 500 m). Kaynak: tr.wikipedia.org (acik).\n")
 print("-> aday_noktalar_taslak.csv guncellendi")

@@ -14,6 +14,11 @@ F.mkdir(exist_ok=True)
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
 AILELER = {"Archivo": [400, 600, 800], "Caveat": [500, 600], "IBM Plex Mono": [400, 500]}
+beklenen = [f"{a.replace(' ', '+')}-{w}.woff2" for a, agir in AILELER.items() for w in agir]
+css_yolu = ROOT / "web" / "styles.css"
+if all((F / fn).exists() for fn in beklenen) and "self-host OFL (36)" in css_yolu.read_text(encoding="utf-8"):
+    print("zaten self-host; atlandi")
+    raise SystemExit(0)
 css_parca = []
 ok = True
 for ad, agir in AILELER.items():

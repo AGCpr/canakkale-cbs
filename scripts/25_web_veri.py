@@ -110,6 +110,15 @@ kor["geometry"] = kor.simplify(0.004).geometry
 k = pd.read_csv(ROOT / "06_karsilastirma" / "karsilastirma_tablosu__PILOT_ADAY.csv")
 h1 = k[k["etiket"] == "H1_tabya_M1_esit"].iloc[0]
 h1v = k[k["etiket"] == "H1_tabya_fV"].iloc[0]
+# Birincil hukum artik GERCEK (cikarimsal havuz); pilot ikincil
+try:
+    gk = json.load(open(ROOT / "06_karsilastirma" / "gercek_kiyas.json", encoding="utf-8"))
+    g1, g1v = gk["H1_M1"], gk["H1_fV"]
+    h1 = {"medyan_fark": g1["fark"], "p": g1["p"], "n_t": g1["n_t"], "n_k": g1["n_k"]}
+    h1v = {"medyan_fark": g1v["fark"], "p": g1v["p"]}
+    birincil = "gercek"
+except Exception:
+    birincil = "pilot"
 
 (WEB / "data" / "noktalar.json").write_text(json.dumps(pts, ensure_ascii=False), encoding="utf-8")
 (WEB / "data" / "koridor.json").write_text(kor.to_json(), encoding="utf-8")
@@ -125,9 +134,9 @@ HAT = [[26.05, 39.95], [26.35, 40.25], [26.65, 40.45], [26.95, 40.62]]
     "overlays": {"esit": "img/u_esit.png", "uzman": "img/u_uzman.png",
                  "denge": "img/u_denge.png", "kumulatif": "img/kum.png",
                  "erisim": "img/erisim.png"},
-    "h1": {"fark": float(h1["medyan_fark"]), "p": float(h1["p"]),
-           "nt": int(h1["n_t"]), "nk": int(h1["n_k"])},
-    "h1v": {"fark": float(h1v["medyan_fark"]), "p": float(h1v["p"])},
+    "h1": {"fark": float(h1["medyan_fark"]), "p": float(h1["p"]) if h1["p"] is not None else None,
+           "nt": int(h1["n_t"]), "nk": int(h1["n_k"]), "kaynak": birincil},
+    "h1v": {"fark": float(h1v["medyan_fark"]), "p": float(h1v["p"]) if h1v["p"] is not None else None},
     "aday_sayisi": int(len(ad)), "kontrol_sayisi": int(len(tab)),
     "uretim": "web veri paketi (pilot; kanit degil)"}, ensure_ascii=False), encoding="utf-8")
 print(f"-> web/data ({len(pts)} nokta) + web/img (5 overlay)")

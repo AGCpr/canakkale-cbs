@@ -47,7 +47,12 @@ files += [ROOT / "README.md", ROOT / "00_yonetim" / "KARAR_KAYDI.md",
           ROOT / "00_yonetim" / "IS_PLANI.md", ROOT / "requirements.txt"]
 files = sorted({str(p): p for p in files if p.is_file() and p.suffix != ".zip"}.values(),
                key=lambda p: str(p))
-files = [p for p in files if "ham" not in p.parts and p.stat().st_size < 150e6]
+# Kendini-dogrulayan kayitlar manifest DISIdir: dogrulama/denetim calismasi
+# onlari yeniden yazar (09'dan sonra). Gerekceleri KULLANIM_NOTU'ndadir.
+OZREF = {"logs/dogrulama.txt", "logs/denetim.txt", "logs/run_all.txt"}
+files = [p for p in files
+         if "ham" not in p.parts and p.stat().st_size < 150e6
+         and p.relative_to(ROOT).as_posix() not in OZREF]
 man = []
 for p in files:
     h = hashlib.sha256(p.read_bytes()).hexdigest()

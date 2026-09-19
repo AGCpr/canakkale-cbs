@@ -11,6 +11,8 @@
 - Kaleler (RK1-RK4) ayri donem: betimsel, kiyas disi.
 - Pareto'da tabya: ['R06', 'R07'].
 - Dirichlet(1,1,1)x2000 P(ust): R01=0.0, R02=0.0, R03=0.0, R04=0.0, R05=0.0, R06=1.0, R07=0.67.
+- Eslesmis cift (n=6): medyan fark -0.0005, Wilcoxon p=0.8438.
+- Donem (betimsel): Geç dönem (n=5, U=0.4829); Çok evreli (n=2, U=0.3421).
 
 ## Sinirlar
 

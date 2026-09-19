@@ -124,7 +124,9 @@ for _, r in df.iterrows():
 
 w = pd.DataFrame(sat)
 w.to_csv(OUT / "capraz_kaynak.csv", index=False)
-with open(OUT / "ADAY_NOTU.md", "a", encoding="utf-8") as f:
-    f.write("\n## Cok-kaynak matris (28)\n\nOverpass geometrileri + Wikidata koordinatlari; "
+with open(OUT / "ADAY_NOTU.md", "a+", encoding="utf-8") as f:
+    f.seek(0)
+    if "## Cok-kaynak matris (28)" not in f.read():
+        f.write("\n## Cok-kaynak matris (28)\n\nOverpass geometrileri + Wikidata koordinatlari; "
             "2+ kaynak <=300 m uyumda orta/300 m. Yuksek guven icin [18] sart; analiz tamponlari (1000 m) korunur.\n")
 print("-> capraz_kaynak.csv")

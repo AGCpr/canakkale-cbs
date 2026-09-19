@@ -113,7 +113,7 @@ def icerir(yol, *frag):
 kayit("I-PILOT_RAPOR", icerir("04_pilot_kalite/PILOT_RAPOR.md", "48", "0,0018", "0,1404", "25/48"))
 kayit("I-K3_HUKMU", icerir("06_karsilastirma/K3_PILOT_HUKMU.md", "ayrışmıyor", "-0.0041", "0.471")
       and icerir("06_karsilastirma/K3_GERCEK_HUKMU.md", "Cikarimsal havuz", "Pareto", "Dirichlet"))
-kayit("I-NIHAI", icerir("09_teslim/NIHAI_RAPOR.md", "105", "ayrışmıyor", "0.51", "0.37"))
+kayit("I-NIHAI", icerir("09_teslim/NIHAI_RAPOR.md", "107", "ayrışmıyor", "0.51", "0.37"))
 
 # J. spot gorus (ortak maske; deterministik -> esitlik beklenir)
 import subprocess as _sp, tempfile as _tf, os as _os
@@ -183,10 +183,10 @@ kayit("K-dejenere-notu", icerir("07_belirsizlik/SENARYO_MATRISI.md", "dejenere")
 import subprocess as _sp2
 try:
     _jm = _js.load(open(ROOT / "web" / "data" / "meta.json", encoding="utf-8"))
-    _r = hc[hc["etiket"] == "H1_tabya_M1_esit"].iloc[0]
-    kayit("L-web:meta-H1", abs(_jm["h1"]["fark"] - _r["medyan_fark"]) < 1e-9
-          and _jm["aday_sayisi"] == 8 and _jm["kontrol_sayisi"] == 100,
-          f"fark={_jm['h1']['fark']} n={_jm['kontrol_sayisi']}+{_jm['aday_sayisi']}")
+    _gk = _js.load(open(ROOT / "06_karsilastirma" / "gercek_kiyas.json", encoding="utf-8"))
+    kayit("L-web:meta-H1", abs(_jm["h1"]["fark"] - _gk["H1_M1"]["fark"]) < 1e-9
+          and _jm["h1"]["kaynak"] == "gercek" and _jm["kontrol_sayisi"] == 100,
+          f"fark={_jm['h1']['fark']} n={_jm['kontrol_sayisi']}+{_jm['aday_sayisi']} ({_jm['h1']['kaynak']})")
 except Exception as e:
     kayit("L-web:meta-H1", False, str(e))
 try:

@@ -62,12 +62,25 @@ for yid, ad, q in SORGULAR:
     time.sleep(1.1)  # Nominatim kullanim kurali
 
 df = pd.DataFrame(sat)
-df.to_csv(OUT / "aday_noktalar_taslak.csv", index=False)
-(OUT / "ADAY_NOTU.md").write_text(
- "# Aday nokta notu (otomatik)\n\n" + "\n".join(f"- {l}" for l in ham_log)
+hedef_csv = OUT / "aday_noktalar_taslak.csv"
+if hedef_csv.exists():
+    # sonraki adimlarin ekledigi sutunlari koru (18/28)
+    eski = pd.read_csv(hedef_csv)
+    ekstra = [c for c in eski.columns if c not in df.columns]
+    if ekstra:
+        df = df.merge(eski[["yapi_id"] + ekstra], on="yapi_id", how="left")
+df.to_csv(hedef_csv, index=False)
+not_yolu = OUT / "ADAY_NOTU.md"
+baslik = ("# Aday nokta notu (otomatik)\n\n" + "\n".join(f"- {l}" for l in ham_log)
  + "\n\nUYARI: Bu dosya tarihsel kanit degildir. Gercek envanter koordinatlari "
    "[18] kurumsal envanter + donem haritalari + [1,2] ile doldurulacaktir. "
-   "Bulunan noktalar dusuk guven + 1000 m hata ile yalnizca pilot zincir testinde kullanilir.\n",
- encoding="utf-8")
+   "Bulunan noktalar dusuk guven + 1000 m hata ile yalnizca pilot zincir testinde kullanilir.\n")
+ek = ""
+if not_yolu.exists():
+    eski_not = not_yolu.read_text(encoding="utf-8")
+    i = eski_not.find("\n## ")
+    if i >= 0:
+        ek = eski_not[i:]  # sonraki adimlarin bolumleri korunur
+not_yolu.write_text(baslik + ek, encoding="utf-8")
 print("\n".join(ham_log))
 print(f"-> aday_noktalar_taslak.csv ({(df.lon_wgs84!='').sum()}/{len(df)} bulundu)")

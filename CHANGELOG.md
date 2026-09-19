@@ -1,5 +1,13 @@
 # Değişiklik günlüğü
 
+## v3.2.0 — sağlamlık turu (2026-09-18)
+
+- Eşleşmiş-çift Wilcoxon (p=0.84) + dönem kırılımı (geç 0.48 vs çok evreli 0.34, betimsel).
+- Web'de GERÇEK birincil (pilot ikincil); PDF/Excel indirme kartları; swipe + hikaye.
+- `--hizli` ucu test edildi: 4 idempotens hatası düzeltildi (05 fE koruma, 36/02/10/18/28),
+  deterministik qgz, öz-referans loglar manifest dışı.
+- Denetim 44/44, paket 105 dosya, hızlı kip tam yeşil.
+
 ## v3.1.0 — çıkarım turu (2026-09-18)
 
 - Gözlemci yüksekliği duyarlılığı (2/4/10 m, 11 kurumsal): R06 0.22→0.47,

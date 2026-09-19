@@ -47,10 +47,6 @@ K228880,0.5442,0.875,yuksek/kararli
 K102240,0.4772,0.0,yuksek/degisken
 K21211,0.4791,0.125,yuksek/degisken
 K77456,0.5216,0.0,yuksek/degisken
-A010,0.4527,0.0,yuksek/degisken
-A005,0.4634,0.0,yuksek/degisken
-A006,0.4618,0.0,yuksek/degisken
-A002,0.4487,0.0,dusuk/degisken
 B001,0.233,0.0,dusuk/degisken
 B002,0.4431,0.0,dusuk/degisken
 B003,0.5727,1.0,yuksek/kararli
@@ -99,3 +95,7 @@ B045,0.5323,0.875,yuksek/kararli
 B046,0.6337,0.875,yuksek/kararli
 B047,0.4142,0.0,dusuk/degisken
 B048,0.3901,0.0,dusuk/degisken
+A010,0.4527,0.0,yuksek/degisken
+A005,0.4634,0.0,yuksek/degisken
+A006,0.4618,0.0,yuksek/degisken
+A002,0.4487,0.0,dusuk/degisken

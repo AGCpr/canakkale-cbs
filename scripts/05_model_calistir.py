@@ -35,6 +35,13 @@ for ad, w in P["agirliklar"].items():
     outs[ad] = w
 # M0 (yalniz gorus) vs M1 (uc olcut, esit) nokta kiyasi — H2 girdisi
 tab["M0"] = tab["fV"]; tab["M1_esit"] = tab["U_esit"]
+try:
+    eski = pd.read_csv(CIK / "model_tablosu.csv")
+    ekstra = [c for c in eski.columns if c not in tab.columns and c != "nok_id"]
+    if ekstra:
+        tab = tab.merge(eski[["nok_id"] + ekstra], on="nok_id", how="left")
+except FileNotFoundError:
+    pass
 tab.to_csv(CIK / "model_tablosu.csv", index=False)
 open(CIK / "MODEL_CALISMA_NOTU.md", "w", encoding="utf-8").write(
  "# Model calisma notu\n\n- U(x)=wV·fV+wR·fR+wS·fS; agirliklar params/model.yaml (toplam 1).\n"

@@ -9,7 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 HIZLI_ATLA = {"01_acik_veri_indir.py", "03_uyumlastir.py", "04_olcut_uret.py",
-              "11_aday_olcut.py", "22_deniz_seviyesi.py"}
+              "11_aday_olcut.py", "22_deniz_seviyesi.py", "30_kurumsal_olcut.py",
+              "34_mapzen.py", "38_gozlemci.py", "39_yogun_kontrol.py"}
 SIRA = ["00_ortam_kaydi.py", "01_acik_veri_indir.py", "02_envanter_iskelet.py",
         "03_uyumlastir.py", "04_olcut_uret.py", "33_anadolu_kontrol.py",
         "33b_anadolu_seyrelt.py", "39_yogun_kontrol.py", "40_olcek_birle.py",

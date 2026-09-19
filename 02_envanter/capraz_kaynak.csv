@@ -1,11 +1,11 @@
 yapi_id,kaynak_sayisi,en_yakin_bagimsiz_m,capraz_guven_yeni,onerilen_hata_m_yeni,kaynaklar
-T01,2,26.8,orta,300,"OSM-Nominatim(40.1450,26.3800); OSM-Overpass:way/333582249(40.1451,26.3797)"
+T01,1,,dusuk,1000,"OSM-Nominatim(40.1450,26.3800)"
 T02,0,,dusuk,1000,
-T03,2,32.7,orta,300,"OSM-Nominatim(40.1411,26.3739); OSM-Overpass:way/1316767903(40.1411,26.3735)"
+T03,1,,dusuk,1000,"OSM-Nominatim(40.1411,26.3739)"
 T04,1,,dusuk,1000,"OSM-Nominatim(40.1375,26.4028)"
-T05,2,11.1,orta,300,"OSM-Nominatim(39.9926,26.1862); OSM-Overpass:way/1135419612(39.9926,26.1861)"
+T05,1,,dusuk,1000,"OSM-Nominatim(39.9926,26.1862)"
 T06,0,,dusuk,1000,
-T07,3,49.2,orta,300,"OSM-Nominatim(40.0420,26.1878); OSM-Overpass:way/844800281(40.0424,26.1876); OSM-Overpass:way/844800282(40.0414,26.1887)"
+T07,1,,dusuk,1000,"OSM-Nominatim(40.0420,26.1878)"
 T08,1,,dusuk,1000,"OSM-Nominatim(40.1478,26.3793)"
-T09,2,4.3,orta,300,"OSM-Nominatim(40.1463,26.3991); OSM-Overpass:way/235113134(40.1464,26.3991)"
+T09,1,,dusuk,1000,"OSM-Nominatim(40.1463,26.3991)"
 T10,1,,dusuk,1000,"OSM-Nominatim(40.1963,26.4012)"

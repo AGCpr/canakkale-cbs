@@ -35,6 +35,9 @@ ADLAR = [
 ]
 
 hedef = ENV / "envanter.csv"
+if hedef.exists():
+    print(f"VAR {hedef} (uzerine yazilmaz; doldurulan koordinatlari korur)")
+    raise SystemExit(0)
 with open(hedef, "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=ALANLAR); w.writeheader()
     for aid, ad, vary, kiyi, islev, evre, tb, te, tg, kay in ADLAR:

@@ -121,6 +121,31 @@ sonuc["H1_fV"] = {"fark": round(float(np.median(A0) - np.median(B0)), 4),
                   "delta": round(cliffs(A0, B0), 2)}
 print("H1_M1:", sonuc["H1_M1"]); print("H1_fV:", sonuc["H1_fV"])
 
+# Eslesmis cift: her referansin medyani vs kendi kontrollerinin medyani (n=6 cift)
+from scipy.stats import wilcoxon
+cift_fark = []
+for k in yeterli:
+    rk = tp_test[tp_test["kayit_id"] == k]["U_esit"].iloc[0]
+    ck = esles[k]["U_esit"].median() if len(esles[k]) else float("nan")
+    cift_fark.append(float(rk - ck))
+cift_fark = np.array(cift_fark)
+try:
+    _, p_cift = wilcoxon(cift_fark, alternative="two-sided")
+    p_cift = round(float(p_cift), 4)
+except Exception:
+    p_cift = None
+sonuc["eslesmis_cift"] = {"n_cift": len(cift_fark),
+                          "medyan_fark": round(float(np.median(cift_fark)), 4),
+                          "p_wilcoxon": p_cift}
+print("Eslesmis cift:", sonuc["eslesmis_cift"])
+# Donem kirilimi (betimsel): gec_donem (5) vs cok_evveli (2)
+sonuc["donem"] = {}
+for grp, ad_ in [("gec_donem_tabya", "Geç dönem"), ("cok_evreli_tabya", "Çok evreli")]:
+    g = tp[tp["grup"] == grp]
+    sonuc["donem"][ad_] = {"n": len(g), "U_medyan": round(float(g["U_esit"].median()), 4),
+                           "fV_medyan": round(float(g["fV"].median()), 4)} if len(g) else {}
+print("Donem:", sonuc["donem"])
+
 # Ablasyon (kontroller uzerinde sira etkisi)
 F = tab[["fV", "fR", "fS"]].to_numpy()
 w = P["agirliklar"]["esit"]
@@ -185,6 +210,10 @@ open(CIKM / "K3_GERCEK_HUKMU.md", "w", encoding="utf-8").write(
  f"- Kaleler (RK1-RK4) ayri donem: betimsel, kiyas disi.\n"
  f"- Pareto'da tabya: {sonuc['pareto_tabya'] if sonuc['pareto_tabya'] else 'yok'}.\n"
  "- Dirichlet(1,1,1)x2000 P(ust): " + ", ".join(f"{k}={v}" for k, v in sonuc["dirichlet"].items()) + ".\n"
+ f"- Eslesmis cift (n={sonuc['eslesmis_cift']['n_cift']}): medyan fark "
+ f"{sonuc['eslesmis_cift']['medyan_fark']:+.4f}, Wilcoxon p={sonuc['eslesmis_cift']['p_wilcoxon']}.\n"
+ f"- Donem (betimsel): " + "; ".join(
+     f"{k} (n={v['n']}, U={v['U_medyan']})" for k, v in sonuc["donem"].items() if v) + ".\n"
  "\n## Sinirlar\n\n- Ziyaret koordinati ozgun platform degildir (kaynakta False).\n"
  "- Kilitbahir kumesinde fV~0: alcak-kiyi + buyuk payda etkisi; metrik tanimi geregi, tarihsel yargi degil.\n"
  "- Kontrol yoklugu yapi yoklugu degildir; <5 kontrolde yuzdelik verilmez.\n")

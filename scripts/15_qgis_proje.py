@@ -69,5 +69,7 @@ qgs = QG / "canakkale_vrs.qgs"
 ET.ElementTree(qgis).write(qgs, encoding="utf-8", xml_declaration=True)
 qgz = QG / "canakkale_vrs.qgz"
 with zipfile.ZipFile(qgz, "w", zipfile.ZIP_DEFLATED) as z:
-    z.write(qgs, qgs.name)
+    zi = zipfile.ZipInfo(qgs.name, date_time=(2026, 9, 16, 0, 0, 0))  # deterministik
+    zi.compress_type = zipfile.ZIP_DEFLATED
+    z.writestr(zi, qgs.read_bytes())
 print(f"-> {qgz} ({len(RASTERS)} raster + {len(VECTORS)} vektor)")

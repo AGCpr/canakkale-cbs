@@ -21,10 +21,10 @@
  },
  "uyari": "DUSUK GUCLU gosteri; tahmin iddiasi yok [8,9]",
  "degisken_onem_RF": {
-  "fV": 0.208,
-  "fR": 0.242,
-  "fS": 0.131,
-  "fE": 0.419
+  "fV": 0.218,
+  "fR": 0.236,
+  "fS": 0.133,
+  "fE": 0.412
  },
- "CV2_AUC_logit": 0.385
+ "CV2_AUC_logit": 0.4
 }

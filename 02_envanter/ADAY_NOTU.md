@@ -13,14 +13,10 @@
 
 UYARI: Bu dosya tarihsel kanit degildir. Gercek envanter koordinatlari [18] kurumsal envanter + donem haritalari + [1,2] ile doldurulacaktir. Bulunan noktalar dusuk guven + 1000 m hata ile yalnizca pilot zincir testinde kullanilir.
 
-## Capraz kontrol (18)
-
-Vikipedi koordinatlariyla karsilastirma; <=500 m uyumda capraz_guven=orta (hata 500 m). Kaynak: tr.wikipedia.org (acik).
-
-## Capraz kontrol (18)
-
-Vikipedi koordinatlariyla karsilastirma; <=500 m uyumda capraz_guven=orta (hata 500 m). Kaynak: tr.wikipedia.org (acik).
-
 ## Cok-kaynak matris (28)
 
 Overpass geometrileri + Wikidata koordinatlari; 2+ kaynak <=300 m uyumda orta/300 m. Yuksek guven icin [18] sart; analiz tamponlari (1000 m) korunur.
+
+## Capraz kontrol (18)
+
+Vikipedi koordinatlariyla karsilastirma; <=500 m uyumda capraz_guven=orta (hata 500 m). Kaynak: tr.wikipedia.org (acik).
