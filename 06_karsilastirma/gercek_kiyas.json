@@ -1,16 +1,31 @@
 {
+ "havuz disi betimsel": {
+  "R04": {
+   "n_k": 4,
+   "U_medyan": 0.4829,
+   "fV": 0.0
+  }
+ },
  "H1_M1": {
-  "n_t": 7,
-  "n_k": 40,
-  "fark": 0.0207,
-  "p": null,
-  "delta": 0.16,
-  "cikarim": "betimsel (n_k<5 referans var)"
+  "n_t": 6,
+  "n_k": 36,
+  "fark": -0.0005,
+  "p": 0.5258,
+  "delta": 0.17,
+  "havuz": [
+   "R01",
+   "R02",
+   "R03",
+   "R05",
+   "R06",
+   "R07"
+  ],
+  "cikarim": "test"
  },
  "H1_fV": {
-  "fark": -0.1085,
-  "p": null,
-  "delta": -0.39
+  "fark": -0.1867,
+  "p": 0.1889,
+  "delta": -0.33
  },
  "ablasyon": [
   {

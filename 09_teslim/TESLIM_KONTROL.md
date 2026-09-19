@@ -11,7 +11,7 @@ Başarı ölçütü güzel harita değil izlenebilir kanıttır.
 Kapılar: K1 ✅ Veri hazır (Copernicus GLO-30, 6 karo, 2026-09-16) · K2 ✅ Pilot geçerli (teknik hat) ·
 K3 ✅ PİLOT (PILOT_ADAY: H1/H2/H3 taslak adaylarla sınandı, hüküm `06_karsilastirma/K3_PILOT_HUKMU.md`) ·
 K3-GERÇEK ⏳ (envanter doğrulamasıyla aynı zincirin tekrarı) · K4 ✅ Teslim paketi üretildi + doğrulandı
-(`logs/dogrulama.txt`: 40/40 dosya, manifest 104/104 OK, hata 0; nihai rapor: `09_teslim/NIHAI_RAPOR.md`).
+(`logs/dogrulama.txt`: 40/40 dosya, manifest 105/105 OK, hata 0; nihai rapor: `09_teslim/NIHAI_RAPOR.md`).
 
 Bu rapor bir uygulama tasarımıdır; gerçek uygunluk/başarı oranı/yeni stratejik alan sonucu K3 geçilmeden yazılmaz.
 Başlangıç kararı: dönemi ve kıyı tabyası grubunu kesinleştirin; küçük pilotta veri yeterliliğini sınayın.

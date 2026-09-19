@@ -32,11 +32,11 @@ with rasterio.open(ROOT / "03_veri/islenmis/dem_30m_32635.tif") as d:
     kayit("A-DEM:crs+cozum", d.crs.to_epsg() == 32635 and abs(d.res[0] - 30) < 1e-9,
           f"{d.crs.to_epsg()} {d.res} {d.width}x{d.height}")
 
-# B. olcut_tablosu (48+4; olcek ilk 48'den donduruldu)
+# B. olcut_tablosu (48+4+48; olcek ilk-48 K capasi)
 t = pd.read_csv(ROOT / "05_olcut_model" / "olcut_tablosu.csv")
-kayit("B-olcut:satir", len(t) == 52, f"n={len(t)}")
+kayit("B-olcut:satir", len(t) == 100, f"n={len(t)}")
 kayit("B-olcut:aralik", bool(((t[["fV", "fR", "fS"]] >= 0) & (t[["fV", "fR", "fS"]] <= 1)).all().all()))
-v = t.loc[~t["nok_id"].str.startswith("A"), "R"].to_numpy(float)
+v = t.loc[t["nok_id"].str.startswith("K"), "R"].to_numpy(float)
 lo, hi = np.percentile(v, [5, 95])
 fr = np.clip((t["R"].to_numpy(float) - lo) / (hi - lo), 0, 1)
 kayit("B-olcut:fR-winsor", np.allclose(fr, t["fR"].to_numpy(float), atol=6e-5), f"p5={lo:.2f} p95={hi:.2f}")
@@ -73,7 +73,7 @@ kayit("E-OWA:OR/AND/notr", bool(np.allclose(o["OWA_OR"], F.max(1), atol=5e-5)
     and np.allclose(o["OWA_AND"], F.min(1), atol=5e-5)
     and np.allclose(o["OWA_notr"], F.mean(1), atol=5e-5)))
 from scipy.stats import spearmanr
-for k, bek in [("OWA_OR", 0.507), ("OWA_AND", 0.373)]:
+for k, bek in [("OWA_OR", 0.534), ("OWA_AND", 0.429)]:
     rho, _ = spearmanr(o["M1_esit"], o[k])
     kayit(f"E-OWA:rho-{k}", abs(rho - bek) < 0.005, f"rho={rho:.3f}")
 
@@ -111,9 +111,9 @@ def icerir(yol, *frag):
     txt = (ROOT / yol).read_text(encoding="utf-8")
     return all(f in txt for f in frag)
 kayit("I-PILOT_RAPOR", icerir("04_pilot_kalite/PILOT_RAPOR.md", "48", "0,0018", "0,1404", "25/48"))
-kayit("I-K3_HUKMU", icerir("06_karsilastirma/K3_PILOT_HUKMU.md", "ayrışmıyor", "-0.0040", "0.507")
-      and icerir("06_karsilastirma/K3_GERCEK_HUKMU.md", "BETIMSEL", "Pareto"))
-kayit("I-NIHAI", icerir("09_teslim/NIHAI_RAPOR.md", "104", "ayrışmıyor", "0.51", "0.37"))
+kayit("I-K3_HUKMU", icerir("06_karsilastirma/K3_PILOT_HUKMU.md", "ayrışmıyor", "-0.0041", "0.471")
+      and icerir("06_karsilastirma/K3_GERCEK_HUKMU.md", "Cikarimsal havuz", "Pareto", "Dirichlet"))
+kayit("I-NIHAI", icerir("09_teslim/NIHAI_RAPOR.md", "105", "ayrışmıyor", "0.51", "0.37"))
 
 # J. spot gorus (ortak maske; deterministik -> esitlik beklenir)
 import subprocess as _sp, tempfile as _tf, os as _os
@@ -185,7 +185,7 @@ try:
     _jm = _js.load(open(ROOT / "web" / "data" / "meta.json", encoding="utf-8"))
     _r = hc[hc["etiket"] == "H1_tabya_M1_esit"].iloc[0]
     kayit("L-web:meta-H1", abs(_jm["h1"]["fark"] - _r["medyan_fark"]) < 1e-9
-          and _jm["aday_sayisi"] == 8 and _jm["kontrol_sayisi"] == 52,
+          and _jm["aday_sayisi"] == 8 and _jm["kontrol_sayisi"] == 100,
           f"fark={_jm['h1']['fark']} n={_jm['kontrol_sayisi']}+{_jm['aday_sayisi']}")
 except Exception as e:
     kayit("L-web:meta-H1", False, str(e))

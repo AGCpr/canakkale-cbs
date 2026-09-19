@@ -16,8 +16,8 @@ Tarih (UTC): 2026-09-16 · Yöntem önerisinin (16 Eylül 2026 raporu) sahaya ge
 ## 2. Bulgular (pilot + kurumsal-tanısal)
 
 - **Şablon cümle (§11, aynen):** "Tarihsel noktalar, tanımlanan fiziki ölçütler bakımından karşılaştırma alanlarından **ayrışmıyor**; bu sonuç belirtilen veri ve senaryo sınırları içinde geçerli."
-- **K3-GERÇEK (7 kurumsal tabya vs bant-eşleşmiş 28 kontrol):** M1 medyan fark −0.023 (delta +0.10),
-  fV fark −0.063 (delta −0.43); referans başına n_k=4 <5 olduğundan çıkarım **betimsel** (cba kuralı), p yok.
+- **K3-GERÇEK (6 kurumsal tabya vs 36 bant-eşleşmiş kontrol + R04 betimsel):** M1 medyan fark −0.001 (p=0.53, delta +0.17),
+  fV fark −0.187 (p=0.19, delta −0.33) — çıkarım **ayrışmıyor**; R04 (n_k=4) ayrı betimsel satırda.
 - H1-pilot (taslak, n=4 vs 15): M1 −0.006 (p=0.74), fV −0.004 (p=0.51) — ayrışma yok.
 - H2: pilot M0→M1 (delta −0.23→+0.13); M2/H2b fark −0.059 (p=0.81) — ek-bilgi işareti zayıf.
 - Ablasyon (kontroller): V-hariç rho 0.99, S-hariç 0.88, R-hariç 0.45, geometrik 0.41 — sıralamayı R sürüklüyor.
@@ -37,7 +37,7 @@ Tarih (UTC): 2026-09-16 · Yöntem önerisinin (16 Eylül 2026 raporu) sahaya ge
 
 ## 4. Kapılar
 
-K1 ✅ · K2 ✅ · K3 ✅ PİLOT · **K3 ✅ GERÇEK-tanısal** (7 kurumsal tabya, bant-eşleşme, betimsel çıkarım; `K3_GERCEK_HUKMU.md`) · K4 ✅ (`logs/dogrulama.txt`, manifest 104/104 OK, hata 0).
+K1 ✅ · K2 ✅ · K3 ✅ PİLOT · **K3 ✅ GERÇEK-tanısal** (7 kurumsal tabya, bant-eşleşme, betimsel çıkarım; `K3_GERCEK_HUKMU.md`) · K4 ✅ (`logs/dogrulama.txt`, manifest 105/105 OK, hata 0).
 Kalan kurumsal iş: özgün oturum doğrulaması (plan jeoreferanslama) + dönem kıyı çizgisi + HGM modeli — `08_saha_belge/` protokolü hazır.
 
 ## 5. Yeniden çalıştırma

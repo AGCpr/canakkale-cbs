@@ -1,4 +1,4 @@
 # Dogrulama
 - zorunlu dosya: 40/40
-- manifest OK: 104
+- manifest OK: 105
 - hata: 0

@@ -89,20 +89,32 @@ for _, a in tp.iterrows():
     esles[a["kayit_id"]] = el
 kk = pd.concat(esles.values()) if esles else tab.iloc[0:0]
 print("eslesmis kontrol:", {k: len(v) for k, v in esles.items()}, "toplam", len(kk))
+sonuc = {}
+# Yeterli-eslesmeli referanslar havuzlanir (cikarimsal); <5 olanlar betimsel ayri.
+yeterli = [k for k, v in esles.items() if len(v) >= 5]
+zayif = [k for k, v in esles.items() if len(v) < 5]
+print("cikarimsal havuz:", yeterli, "| betimsel:", zayif)
+tp_test = tp[tp["kayit_id"].isin(yeterli)].copy()
+kk_test = pd.concat([esles[k] for k in yeterli]) if yeterli else tab.iloc[0:0]
+sonuc["havuz disi betimsel"] = {
+    k: {"n_k": len(esles[k]),
+        "U_medyan": round(float(tp[tp["kayit_id"] == k]["U_esit"].iloc[0]), 4),
+        "fV": round(float(tp[tp["kayit_id"] == k]["fV"].iloc[0]), 4)}
+    for k in zayif}
 
 def cliffs(a, b):
     a = np.asarray(a, float); b = np.asarray(b, float)
     return float((np.sum(a[:, None] > b) - np.sum(a[:, None] < b)) / (len(a) * len(b)))
 
-sonuc = {}
-A = tp["U_esit"].to_numpy(); B = kk["U_esit"].to_numpy() if len(kk) else tab["U_esit"].to_numpy()
-guc_yeterli = all(len(v) >= 5 for v in esles.values()) and len(kk) >= 5
+A = tp_test["U_esit"].to_numpy(); B = kk_test["U_esit"].to_numpy() if len(kk_test) else tab["U_esit"].to_numpy()
+guc_yeterli = len(tp_test) >= 3 and len(kk_test) >= 10
 u_, p_ = mannwhitneyu(A, B, alternative="two-sided")
 sonuc["H1_M1"] = {"n_t": len(A), "n_k": len(B), "fark": round(float(np.median(A) - np.median(B)), 4),
                   "p": round(float(p_), 4) if guc_yeterli else None,
                   "delta": round(cliffs(A, B), 2),
-                  "cikarim": "test" if guc_yeterli else "betimsel (n_k<5 referans var)"}
-A0 = tp["fV"].to_numpy(); B0 = kk["fV"].to_numpy() if len(kk) else tab["fV"].to_numpy()
+                  "havuz": yeterli,
+                  "cikarim": "test" if guc_yeterli else "betimsel (yetersiz eslesme)"}
+A0 = tp_test["fV"].to_numpy(); B0 = kk_test["fV"].to_numpy() if len(kk_test) else tab["fV"].to_numpy()
 u0, p0 = mannwhitneyu(A0, B0, alternative="two-sided")
 sonuc["H1_fV"] = {"fark": round(float(np.median(A0) - np.median(B0)), 4),
                   "p": round(float(p0), 4) if guc_yeterli else None,
@@ -167,6 +179,8 @@ open(CIKM / "K3_GERCEK_HUKMU.md", "w", encoding="utf-8").write(
  f"> \"Tarihsel noktalar, tanımlanan fiziki ölçütler bakımından karşılaştırma alanlarından "
  f"{cumle}; bu sonuç belirtilen veri ve senaryo sınırları içinde geçerli.\"\n\n"
  f"- Birincil grup: 7 tabya (R01-R07, kurumsal ziyaret referansi; ozgun oturum dogrulanmadi).\n"
+ f"- Cikarimsal havuz (n_k>=5 sarti): {', '.join(yeterli) if yeterli else 'yok'}. "
+ f"Havuz-disi betimsel: {', '.join(k + '(n_k=' + str(v['n_k']) + ',U=' + str(v['U_medyan']) + ')' for k, v in sonuc['havuz disi betimsel'].items()) if sonuc['havuz disi betimsel'] else 'yok'}.\n"
  f"{h1_satir}{h1v_satir}"
  f"- Kaleler (RK1-RK4) ayri donem: betimsel, kiyas disi.\n"
  f"- Pareto'da tabya: {sonuc['pareto_tabya'] if sonuc['pareto_tabya'] else 'yok'}.\n"
